@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package program;
+
+option go_package = "github.com/barsboldb/ascend-backend/gen/program";
+
+service ProgramService {
+  rpc GetProgram(GetProgramRequest) returns (GetProgramResponse);
+}
+
+message GetProgramRequest {
+  string id = 1;
+}
+
+message GetProgramResponse {
+  string                    id          = 1;
+  string                    name        = 2;
+  string                    description = 3;
+  int32                     total_weeks = 4;
+  google.protobuf.Timestamp created_at  = 5; 
+}
