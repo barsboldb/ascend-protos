@@ -21,7 +21,13 @@ message GetSessionResponse {
   google.protobuf.Timestamp started_at     = 4;
   google.protobuf.Timestamp ended_at       = 5;
   string                    notes          = 6;
-  repeated ExerciseSet      exercise_sets  = 7;
+  repeated SessionExercise  exercises      = 7;
+}
+
+message SessionExercise {
+  string               exercise_id   = 1;
+  string               exercise_name = 2;
+  repeated ExerciseSet sets          = 3;
 }
 
 message ExerciseSet {
